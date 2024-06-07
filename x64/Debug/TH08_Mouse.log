@@ -1,0 +1,6 @@
+﻿  main.cpp
+C:\Users\PeterB\Documents\GitHub\TH08_Mouse\TH08_Mouse\TH08_Mouse\main.cpp(141,42): warning C4312: “<function-style-cast>”: 从“DWORD”转换到更大的“LPVOID”
+C:\Users\PeterB\Documents\GitHub\TH08_Mouse\TH08_Mouse\TH08_Mouse\main.cpp(145,42): warning C4312: “<function-style-cast>”: 从“DWORD”转换到更大的“LPVOID”
+  TH08_Mouse.vcxproj -> C:\Users\PeterB\Documents\GitHub\TH08_Mouse\TH08_Mouse\x64\Debug\TH08_Mouse.exe
+  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+  或批处理文件。

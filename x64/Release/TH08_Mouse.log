@@ -1,0 +1,10 @@
+﻿  main.cpp
+C:\Users\PeterB\Documents\GitHub\TH08_Mouse\TH08_Mouse\TH08_Mouse\main.cpp(139,42): warning C4312: “<function-style-cast>”: 从“DWORD”转换到更大的“LPVOID”
+C:\Users\PeterB\Documents\GitHub\TH08_Mouse\TH08_Mouse\TH08_Mouse\main.cpp(143,42): warning C4312: “<function-style-cast>”: 从“DWORD”转换到更大的“LPVOID”
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+  All 10 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  TH08_Mouse.vcxproj -> C:\Users\PeterB\Documents\GitHub\TH08_Mouse\TH08_Mouse\x64\Release\TH08_Mouse.exe
+  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+  或批处理文件。
