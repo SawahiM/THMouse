@@ -1,7 +1,0 @@
-﻿  main.cpp
-C:\Users\PeterB\Documents\GitHub\TH08_Mouse\TH08_Mouse\TH08_Mouse\main.cpp(40,27): warning C4312: “类型强制转换”: 从“DWORD”转换到更大的“LPVOID”
-C:\Users\PeterB\Documents\GitHub\TH08_Mouse\TH08_Mouse\TH08_Mouse\main.cpp(45,14): warning C4244: “return”: 从“QWORD”转换到“DWORD”，可能丢失数据
-C:\Users\PeterB\Documents\GitHub\TH08_Mouse\TH08_Mouse\TH08_Mouse\main.cpp(50,14): warning C4244: “return”: 从“QWORD”转换到“BYTE”，可能丢失数据
-  TH08_Mouse.vcxproj -> C:\Users\PeterB\Documents\GitHub\TH08_Mouse\TH08_Mouse\TH08_Mouse\x64\Debug\TH08_Mouse.exe
-  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
-  或批处理文件。
