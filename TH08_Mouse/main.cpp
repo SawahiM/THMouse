@@ -27,7 +27,7 @@ static DWORD GetProcessID(const wchar_t* processName) {
     return processID;
 }
 
-const wchar_t* processName = L"th08.exe";
+const wchar_t* processName;
 DWORD pid;
 HANDLE hd;  //进程句柄
 
@@ -103,44 +103,60 @@ void XYMapping(RECT R, POINT P, float* x, float* y) {
 //修改游戏内坐标值
 //x:th08.exe+13D61AC y:th08.exe+13D61B0 类型：单浮点
 
+int gameN = 0;
 float x, y;
-DWORD xAddr = 0x00400000+0x013D61AC,
-      yAddr = 0x00400000+0x013D61B0;
+DWORD xAddr = 0x400000,
+      yAddr = 0x400000;
 
 int main()
 {
-    pid = GetProcessID(processName);
-    if (pid)
-    {
-        hd = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);  //进程句柄
-        
-        if (!hd)
-        {
-            printf("无法获取目标进程句柄！！");
-            getchar();
-            return 0;
-        }
-        printf("%d\n", pid);
-        gameHandle = FindMainWindow(pid);
+    while (gameN < 1 or gameN > 3) {
+        printf("请选择游戏： 1)红魔乡 2)妖妖梦 3)永夜抄\n");
+        scanf_s("%d", &gameN);
     }
-    else {
-        printf("无法获取目标进程PID！！");
+    switch (gameN) {
+    case 1:
+        processName = L"搶曽峠杺嫿.exe";
+        xAddr += 0x2CAA68, yAddr += 0x2CAA6C;
+        break;
+    case 2:
+        processName = L"th07.exe";
+        xAddr += 0xBE408, yAddr += 0xBE40C;
+        break;
+    case 3:
+        processName = L"th08.exe";
+        xAddr += 0x13D61AC, yAddr += 0x13D61B0;
     }
+    for (pid = GetProcessID(processName); pid == 0;) {
+        printf("无法获取目标进程PID！请检查游戏是否启动。\n");
+        system("pause");
+        pid = GetProcessID(processName);
+    }
+    for (hd = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid); hd == 0;) {//进程句柄
+        printf("无法获取目标进程句柄！请检查游戏是否启动。\n");
+        system("pause");
+        hd = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
+    }
+    for (gameHandle = FindMainWindow(pid); gameHandle == 0;) {
+        printf("无法捕捉游戏窗口！请检查游戏是否正常运行。\n");
+        system("pause");
+    }
+    printf("鼠标控制已启用。\n");
     while (1) { //主循环
-        if (GetCursorPos(&mousePos) == 0) {
+        while (GetCursorPos(&mousePos) == 0) {
             printf("无法获取指针位置！\n");
             system("pause");
         }
-        if (GetWindowRect(gameHandle, &gameWindow) == 0) {
+        while (GetWindowRect(gameHandle, &gameWindow) == 0) {
             printf("无法获取窗口大小！\n");
             system("pause");
         }
         XYMapping(gameWindow, mousePos, &x, &y);
-        if (WriteProcessMemory(hd, LPVOID(xAddr), &x, sizeof(float), 0) == 0) {
+        while (WriteProcessMemory(hd, LPVOID(xAddr), &x, sizeof(float), 0) == 0) {
             printf("无法修改内存！\n");
             system("pause");
         }
-        if (WriteProcessMemory(hd, LPVOID(yAddr), &y, sizeof(float), 0) == 0) {
+        while (WriteProcessMemory(hd, LPVOID(yAddr), &y, sizeof(float), 0) == 0) {
             printf("无法修改内存！\n");
             system("pause");
         }
