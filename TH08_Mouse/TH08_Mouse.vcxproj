@@ -24,6 +24,7 @@
     <ProjectGuid>{8fb92b89-302d-49eb-85db-b075de8cf2b7}</ProjectGuid>
     <RootNamespace>TH08Mouse</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>THMouse</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
